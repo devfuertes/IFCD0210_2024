@@ -84,6 +84,17 @@ export class MenuComponent {
         path: '/about',
         label: 'About',
       },
+
+
+      this.item = routers.filter((route) => route.path !== '**' && route.path !='').map((route) => {
+        path.route.path!,
+        label:route.data!['label'] as string,
+
+      })
+
+
+
+
     ];
   }
 }
