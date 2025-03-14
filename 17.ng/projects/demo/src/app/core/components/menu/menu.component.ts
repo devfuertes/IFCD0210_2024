@@ -1,10 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, input } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
-type MenuItem = {
-  path: string;
-  label: string;
-};
+import { MenuItem } from '../../../app.component';
 
 @Component({
   selector: 'cas-menu',
@@ -12,7 +9,7 @@ type MenuItem = {
   template: `
     <nav>
       <ul>
-        @for (item of items; track item.path) {
+        @for (item of items(); track item.path) {
           <li>
             <a [routerLink]="item.path" routerLinkActive="active">{{
               item.label
@@ -68,8 +65,10 @@ type MenuItem = {
   `,
 })
 export class MenuComponent {
-  items: MenuItem[];
+  // @Input() items: MenuItem[] = [];
+  items = input<MenuItem[]>();
   isLogin = false;
+<<<<<<< HEAD
   constructor() {
     this.items = [
       {
@@ -97,4 +96,6 @@ export class MenuComponent {
 
     ];
   }
+=======
+>>>>>>> 0976fb62be418c65c49dbf3a3a670571274ed36b
 }
